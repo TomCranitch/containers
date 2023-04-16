@@ -25,7 +25,6 @@ jobs:
     steps:
       - name: log
         run: echo ${{needs.metadata.outputs.matrix}}
-    steps:
       - name: log json
         run: echo ${{ fromJson(needs.metadata.outputs.matrix) }}
   docker:
