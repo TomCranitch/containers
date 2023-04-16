@@ -1,7 +1,9 @@
-[
-	{
-		"name": "postgres-initdb-with-sql",
-		"path": "./postgres-initdb-with-sql",
-		"version": "0.0.1"
-	}
-]
+{
+	"include": [
+		{
+			"name": "postgres-initdb-with-sql",
+			"path": "./postgres-initdb-with-sql",
+			"version": "0.0.1"
+		}
+	]
+}
