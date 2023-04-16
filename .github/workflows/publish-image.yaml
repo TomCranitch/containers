@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 2
       - name: Get matrix 
         id: set-matrix
-        run: echo name=$(cat $GITHUB_WORKSPACE/containers.json) >> $GITHUB_OUTPUT
+        run: echo matrix=$(cat $GITHUB_WORKSPACE/containers.json) >> $GITHUB_OUTPUT
   docker:
     runs-on: ubuntu-latest
     strategy:
