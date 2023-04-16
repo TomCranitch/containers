@@ -19,6 +19,7 @@ jobs:
       - name: Get matrix 
         id: set-matrix
         run: echo ::set-output name=matrix::$(cat containers.json)
+        run: echo name=$(cat containers.json) >> $GITHUB_OUTPUT
   docker:
     runs-on: ubuntu-latest
     strategy:
