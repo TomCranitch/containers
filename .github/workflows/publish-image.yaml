@@ -74,7 +74,7 @@ jobs:
             ${{ steps.vars.outputs.chan_label_type }}.documentation="https://github.com/tomcranitch/containers/${{ matrix.path }}/README.md"
             ${{ steps.vars.outputs.chan_label_type }}.revision="${{ github.sha }}"
           platforms: "linux/amd64"
-          push: ${{ inputs.pushImages == 'true' }}
+          push: true
           tags: |-
             ghcr.io/tomcranitch/${{ matrix.name }}:latest
             ghcr.io/tomcranitch/${{ matrix.name }}:${{ matrix.version }}
