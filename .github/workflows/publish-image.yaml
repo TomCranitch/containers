@@ -33,7 +33,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.metadata.outputs.matrix) }}
     permissions:
-      packages: read/write
+      packages: write
       contents: read
     steps:
       - name: log
