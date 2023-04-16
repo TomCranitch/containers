@@ -50,10 +50,10 @@ do
     if [[ -z "${database_exists}" ]]; then
         printf "\e[1;32m%-6s\e[m\n" "Create Database ${init_db} ..."
         createdb --owner "${POSTGRES_USER}" "${init_db}"
-
-        printf "\e[1;32m%-6s\e[m\n" "Running file ${POSTGRES_INIT_FILE} in database ${init_db} ..."
-		psql -d ${init_db} -f ${POSTGRES_INIT_FILE}
     fi
+
+    printf "\e[1;32m%-6s\e[m\n" "Running file ${POSTGRES_INIT_FILE} in database ${init_db} ..."
+	psql -d ${init_db} -f ${POSTGRES_INIT_FILE}
 
     printf "\e[1;32m%-6s\e[m\n" "Update User Privileges on Database ..."
     psql --command "grant all privileges on database \"${init_db}\" to \"${POSTGRES_USER}\";"
