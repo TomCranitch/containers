@@ -66,15 +66,15 @@ jobs:
             ${{ steps.vars.outputs.chan_label_type }}.title="${{ matrix.name }}"
             ${{ steps.vars.outputs.chan_label_type }}.version="${{ matrix.version }}"
             ${{ steps.vars.outputs.chan_label_type }}.authors="Tom Cranitch"
-            ${{ steps.vars.outputs.chan_label_type }}.url="https://github.com/TomCranitch/containers/${{ matrix.path }}"
-            ${{ steps.vars.outputs.chan_label_type }}.build.url="https://github.com/TomCranitch/containers/actions/runs/${{ github.run_id }}"
-            ${{ steps.vars.outputs.chan_label_type }}.documentation="https://github.com/TomCranitch/containers/${{ matrix.path }}/README.md"
+            ${{ steps.vars.outputs.chan_label_type }}.url="https://github.com/tomcranitch/containers/${{ matrix.path }}"
+            ${{ steps.vars.outputs.chan_label_type }}.build.url="https://github.com/tomcranitch/containers/actions/runs/${{ github.run_id }}"
+            ${{ steps.vars.outputs.chan_label_type }}.documentation="https://github.com/tomcranitch/containers/${{ matrix.path }}/README.md"
             ${{ steps.vars.outputs.chan_label_type }}.revision="${{ github.sha }}"
           platforms: "linux/amd64"
           file: ${{ matrix.path }}
           push: ${{ inputs.pushImages == 'true' }}
           tags: |-
-            ghcr.io/TomCranitch/${{ matrix.name }}:latest
-            ghcr.io/TomCranitch/${{ matrix.name }}:${{ matrix.version }}
+            ghcr.io/tomcranitch/${{ matrix.name }}:latest
+            ghcr.io/tomcranitch/${{ matrix.name }}:${{ matrix.version }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
