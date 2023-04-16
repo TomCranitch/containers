@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 2
       - name: Get matrix 
         id: set-matrix
-        run: echo name=$(cat containers.json) >> $GITHUB_OUTPUT
+        run: echo name=$(cat $GITHUB_WORKSPACE/containers.json) >> $GITHUB_OUTPUT
   docker:
     runs-on: ubuntu-latest
     strategy:
@@ -49,7 +49,7 @@ jobs:
         id: release
         uses: docker/build-push-action@v4
         with:
-          context: ${{ matrix.path }}
+          context: $GITHUB_WORKSPACE/${{ matrix.path }}
           labels: |-
             ${{ steps.vars.outputs.chan_label_type }}.created="${{ steps.vars.outputs.chan_build_date }}"
             ${{ steps.vars.outputs.chan_label_type }}.title="${{ matrix.name }}"
