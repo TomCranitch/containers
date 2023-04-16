@@ -63,7 +63,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          path: $GITHUB_WORKSPACE/${{ matrix.path }}/Dockerfile
+          file: $GITHUB_WORKSPACE/${{ matrix.path }}/Dockerfile
           labels: |-
             ${{ steps.vars.outputs.chan_label_type }}.created="${{ steps.vars.outputs.chan_build_date }}"
             ${{ steps.vars.outputs.chan_label_type }}.title="${{ matrix.name }}"
@@ -74,7 +74,6 @@ jobs:
             ${{ steps.vars.outputs.chan_label_type }}.documentation="https://github.com/tomcranitch/containers/${{ matrix.path }}/README.md"
             ${{ steps.vars.outputs.chan_label_type }}.revision="${{ github.sha }}"
           platforms: "linux/amd64"
-          file: ${{ matrix.path }}
           push: ${{ inputs.pushImages == 'true' }}
           tags: |-
             ghcr.io/tomcranitch/${{ matrix.name }}:latest
